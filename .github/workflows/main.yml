@@ -22,5 +22,8 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew || true
 
-    - name: Build with Gradle
-      run: ./gradlew assembleDebug || gradle assembleDebug
+    - name: Build with Gradle (Ignore Warnings)
+      env:
+        ORG_GRADLE_PROJECT_android_useAndroidX: true
+      run: |
+        ./gradlew assembleDebug -Xlint:none -Xlint:deprecation --no-daemon || ./gradlew assembleDebug --stacktrace --no-daemon
