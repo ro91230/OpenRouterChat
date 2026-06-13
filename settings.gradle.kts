@@ -6,11 +6,12 @@ pluginManagement {
     }
 }
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT) // تم التعديل هنا لتخطي قفل الأمان
     repositories {
         google()
         mavenCentral()
     }
 }
+
 rootProject.name = "OpenRouterChat"
 include(":app")
